@@ -1,7 +1,7 @@
 //Computer Selection
     //Generate a random number from 0 to 2
 function getComputerChoice() {
-    const computerChoice = Math.floor(Math.random() * 3);
+    let computerChoice = Math.floor(Math.random() * 3);
     return computerChoice;
     }
 
@@ -26,25 +26,56 @@ function getPlayerChoice() {
 }
 
 //Get both values and evaluate final result
+//Function shows who wins but doesn't show what player selected vs what computer selected
 function playRound() {
-    let player1 = getPlayerChoice()
-    let player2 = getComputerChoice()
-    console.log("User: " + player1)
-    console.log("Computer:" + player2)
+    const player1 = getPlayerChoice()
+    const player2 = getComputerChoice()
 
-    result = (player2 - player1 + 3) % 3
-    
+    //Equation `(player2 - player1 + 3)` created from rock paper scissors truth table
+    //Winner is decided on difference of equation, hence adding `%3` to equation
+    const result = (player2 - player1 + 3) % 3
     let finalResult
+    
+    //Show Player Selection
+    let playerSelection
+    switch (player1) {
+        case 0:
+            playerSelection = "Rock"
+            break;
+        case 1:
+            playerSelection = "Paper"
+            break;   
+        case 2:      
+            playerSelection = "Scissors"
+            break;       
+    }
+
+    //Show Computer Selection
+    let computerSelection
+    switch (player2) {
+        case 0:
+            computerSelection = "Rock"
+            break;
+        case 1:
+            computerSelection = "Paper"
+            break;   
+        case 2:      
+            computerSelection = "Scissors"
+            break;       
+    }
+
+    //Show who won by switch statement
     switch (result) {
         case 0:
             finalResult = "Draw"
+            break;
         case 1:
-            finalResult = "Player 1 Wins"
+            finalResult = (`Player 2 Wins! ${computerSelection} beats ${playerSelection}!`)
+            break;
         case 2:
-            finalResult = "Player 2 Wins"
+            finalResult = (`Player 1 Wins! ${playerSelection} beats ${computerSelection}!`)
+            break;
     }
-    console.log(finalResult);
-    return finalResult;
-}
+    console.log(finalResult);}
 
-playRound();
+playRound()
