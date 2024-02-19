@@ -6,8 +6,8 @@ function getComputerChoice() {
     }
 
 //User Selection
-    //Assume user will only type rock, paper or scissors
     //Prompts user to type a selection
+        //Assume user will only type rock, paper or scissors
     //User selection is converted to 0, 1 or 2
 function getPlayerChoice() {
     let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
@@ -25,46 +25,37 @@ function getPlayerChoice() {
     return playerChoice;
 }
 
+//Translate number selection to string definition
+function getChoiceName (selection) {
+    switch (selection) {
+        case 0:
+            selection = "Rock"
+            break;
+        case 1:
+            selection = "Paper"
+            break;   
+        case 2:      
+            selection = "Scissors"
+            break;     
+    }
+    return selection
+}
+
 //Get both values and evaluate final result
-//Function shows who wins but doesn't show what player selected vs what computer selected
 function playRound() {
+    //Get players selection (0, 1 or 2)
     const player1 = getPlayerChoice()
     const player2 = getComputerChoice()
+    //Translate players selection (Rock, Paper or Scissors)
+    let playerSelection = getChoiceName(player1);
+    let computerSelection = getChoiceName(player2);
 
     //Equation `(player2 - player1 + 3)` created from rock paper scissors truth table
     //Winner is decided on difference of equation, hence adding `%3` to equation
     const result = (player2 - player1 + 3) % 3
-    let finalResult
-    
-    //Show Player Selection
-    let playerSelection
-    switch (player1) {
-        case 0:
-            playerSelection = "Rock"
-            break;
-        case 1:
-            playerSelection = "Paper"
-            break;   
-        case 2:      
-            playerSelection = "Scissors"
-            break;       
-    }
-
-    //Show Computer Selection
-    let computerSelection
-    switch (player2) {
-        case 0:
-            computerSelection = "Rock"
-            break;
-        case 1:
-            computerSelection = "Paper"
-            break;   
-        case 2:      
-            computerSelection = "Scissors"
-            break;       
-    }
 
     //Show who won by switch statement
+    let finalResult
     switch (result) {
         case 0:
             finalResult = "Draw"
