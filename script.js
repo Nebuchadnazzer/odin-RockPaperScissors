@@ -26,19 +26,19 @@ function getPlayerChoice() {
 }
 
 //Translate number selection to string definition
-function getChoiceName (selection) {
-    switch (selection) {
+function getChoiceName (choiceName) {
+    switch (choiceName) {
         case 0:
-            selection = "Rock"
+            choiceName = "Rock"
             break;
         case 1:
-            selection = "Paper"
+            choiceName = "Paper"
             break;   
         case 2:      
-            selection = "Scissors"
+        choiceName = "Scissors"
             break;     
     }
-    return selection
+    return choiceName
 }
 
 //Get both values and evaluate final result
@@ -77,17 +77,17 @@ function playRound() {
 
 //Add counter
 function playGame() {
-    let humanScore = 0
+    let playerScore = 0
     let computerScore = 0
 
     for (let i = 0; i < 5; i++) {
         round = playRound()
-        humanScore += round[0]
+        playerScore += round[0]
         computerScore += round[1]
       }
 
     console.log(`
-    Human: ${humanScore} 
+    Player: ${playerScore} 
     Computer: ${computerScore}`)
 }
 
@@ -95,4 +95,4 @@ playGame();
 //The game works
 //But it keeps propmting the user for their selection 
 //without being shown the results on the last round before being prompted to start another round
-//Player should have the option to start the round
+//Player should have the option to start the
