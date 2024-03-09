@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+#final-results {
+    display: flex;
+    justify-content: center;
+    /* visibility: hidden; */
+}
+
+#results {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 20px;
+}
+
+#score-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    width: auto;
+    gap: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.button-container button {
+    margin: 0 5px;
+}
